@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What is JSON — JSON Guide</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="docs-nav-sidebar">
+        <div class="logo-row">
+            <a href="../index.html" class="logo">AVI — JSON Guide</a>
+            <button class="nav-icon-btn" data-toggle-theme aria-label="Toggle theme" style="background:none;border:none;color:var(--muted);cursor:pointer;padding:4px;display:flex;margin-left:auto;transition:color .2s;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <ul class="nav-links" id="section-nav">
+            <li><a href="what-is-json.html" class="active">What is JSON</a></li>
+            <li><a href="syntax.html">Basic Rules</a></li>
+            <li><a href="data-types.html">Value Types</a></li>
+            <li><a href="strings.html">Strings</a></li>
+            
+            <li><a href="numbers.html">Numbers</a></li>
+            <li><a href="boolean.html">Boolean</a></li>
+            <li><a href="null.html">Null</a></li>
+            <li><a href="objects.html">Objects</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="nesting.html">Nesting &amp; Structure</a></li>
+            <li><a href="validating.html">Validating JSON</a></li>
+            <li><a href="real-world.html">Real-World Examples</a></li>
+            <li><a href="best-practices.html">Best Practices</a></li>
+        </ul>
+        <div class="docs-sidebar-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="docs-sidebar-links">
+                <a href="../index.html">GUIDE</a>
+                <a href="https://github.com">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="docs-content">
+            <div class="docs-section active" id="sec0">
+                <h2><span class="sec-num">00</span> What is JSON</h2>
+                <p><strong>JSON</strong> stands for <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation. It is a lightweight, text-based format for storing and exchanging data. JSON is easy for humans to read and write, and easy for machines to parse and generate.</p>
+
+                <h3>Example</h3>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "name": "Jane Doe",
+    "role": "Researcher",
+    "age": 32,
+    "active": true
+}</code></pre>
+                <p>This describes a person with four pieces of information: name, role, age, and active status.</p>
+
+                <h3>Why use JSON?</h3>
+                <div class="blog-table"><table><thead><tr><th>Benefit</th><th>Why it matters</th></tr></thead><tbody>
+                <tr><td><strong>Human readable</strong></td><td>Plain text with clear structure — anyone can understand it</td></tr>
+                <tr><td><strong>Language independent</strong></td><td>Works with every major programming language</td></tr>
+                <tr><td><strong>Lightweight</strong></td><td>Minimal syntax means small file sizes for fast transfer</td></tr>
+                <tr><td><strong>Hierarchical</strong></td><td>Supports nested structures to represent complex data</td></tr>
+                <tr><td><strong>Widely supported</strong></td><td>Every platform and tool has built-in JSON support</td></tr>
+                </tbody></table></div>
+
+
+
+                <div class="sec-nav"><span></span><a href="syntax.html">Next →</a></div>
+            </div>
+        </div>
+        <footer class="docs-page-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="footer-links">
+                <a href="../index.html">Guide</a>
+                <a href="https://github.com">GitHub</a>
+            </div>
+        </footer>
+    </div>
+    <script>function copyCode(btn){var code=btn.nextElementSibling;if(!code)return;navigator.clipboard.writeText(code.textContent).then(function(){var t=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=t},1500)})}
+    (function(){var t=localStorage.getItem('theme')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');document.addEventListener('click',function(e){var b=e.target.closest('[data-toggle-theme]');if(b){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}}})})();</script>
+</body>
+</html>
+
+
+
+
+
+
+

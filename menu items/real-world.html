@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-World Examples — JSON Guide</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="docs-nav-sidebar">
+        <div class="logo-row">
+            <a href="../index.html" class="logo">AVI — JSON Guide</a>
+            <button class="nav-icon-btn" data-toggle-theme aria-label="Toggle theme" style="background:none;border:none;color:var(--muted);cursor:pointer;padding:4px;display:flex;margin-left:auto;transition:color .2s;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <ul class="nav-links" id="section-nav">
+            <li><a href="what-is-json.html">What is JSON</a></li>
+            <li><a href="syntax.html">Basic Rules</a></li>
+            <li><a href="data-types.html">Value Types</a></li>
+            <li><a href="strings.html">Strings</a></li>
+            
+            <li><a href="numbers.html">Numbers</a></li>
+            <li><a href="boolean.html">Boolean</a></li>
+            <li><a href="null.html">Null</a></li>
+            <li><a href="objects.html">Objects</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="nesting.html">Nesting &amp; Structure</a></li>
+            <li><a href="validating.html">Validating JSON</a></li>
+            <li><a href="real-world.html" class="active">Real-World Examples</a></li>
+            <li><a href="best-practices.html">Best Practices</a></li>
+        </ul>
+        <div class="docs-sidebar-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="docs-sidebar-links">
+                <a href="../index.html">GUIDE</a>
+                <a href="https://github.com">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="docs-content">
+            <div class="docs-section active" id="sec10">
+                <h2><span class="sec-num">11</span> Real-World Examples</h2>
+                <p>Here are complete JSON examples modeled after common real-world scenarios.</p>
+
+                <h3>Example 1 — E-Commerce Product</h3>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "product_id": "PROD-001",
+    "name": "Wireless Headphones",
+    "price": 79.99,
+    "currency": "USD",
+    "in_stock": true,
+    "category": "Electronics",
+    "tags": ["audio", "wireless", "bluetooth"],
+    "variants": [
+        { "color": "Black", "sku": "WH-BLK", "stock": 42 },
+        { "color": "White", "sku": "WH-WHT", "stock": 15 }
+    ],
+    "reviews": [
+        { "user": "Alice", "rating": 5, "comment": "Great sound!" },
+        { "user": "Bob", "rating": 4, "comment": "Comfortable but heavy" }
+    ]
+}</code></pre>
+
+                <h3>Example 2 — Blog Post with Comments</h3>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "post": {
+        "id": 42,
+        "title": "Getting Started with JSON",
+        "slug": "getting-started-json",
+        "author": {
+            "name": "Jane Dev",
+            "avatar": "https://example.com/avatar.jpg"
+        },
+        "published": "2026-01-15",
+        "content": "JSON is a lightweight data format...",
+        "tags": ["json", "tutorial", "web"],
+        "comments": [
+            {
+                "id": 1,
+                "user": "Reader123",
+                "text": "Very helpful, thanks!",
+                "date": "2026-01-16"
+            }
+        ]
+    }
+}</code></pre>
+
+                <h3>Example 3 — University Course Catalog</h3>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "university": "State University",
+    "semester": "Fall 2026",
+    "courses": [
+        {
+            "code": "CS101",
+            "title": "Intro to Programming",
+            "credits": 4,
+            "instructor": "Dr. Smith",
+            "schedule": {
+                "days": ["Mon", "Wed"],
+                "time": "10:00-11:30",
+                "room": "Hall 201"
+            },
+            "enrolled": 45,
+            "capacity": 60
+        },
+        {
+            "code": "CS201",
+            "title": "Data Structures",
+            "credits": 4,
+            "instructor": "Dr. Jones",
+            "schedule": {
+                "days": ["Tue", "Thu"],
+                "time": "14:00-15:30",
+                "room": "Lab 305"
+            },
+            "enrolled": 30,
+            "capacity": 40
+        }
+    ]
+}</code></pre>
+
+                <h3>Example 4 — Website Configuration (Academic Template)</h3>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "name": "Researcher Name",
+    "title": "PhD Candidate",
+    "header": {
+        "name": "Jane Doe",
+        "subtitle": "Computer Science",
+        "institution": "University of Excellence",
+        "image": "assets/images/profile.jpg"
+    },
+    "sections": [
+        { "file": "data/about.json", "id": "about", "enabled": true },
+        { "file": "data/publications.json", "id": "publications", "enabled": true },
+        { "file": "data/education.json", "id": "education", "enabled": true },
+        { "file": "data/contact.json", "id": "contact", "enabled": true }
+    ]
+}</code></pre>
+
+                <h3>Example 5 — API Response with Error</h3>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "success": false,
+    "error": {
+        "code": "AUTH_FAILED",
+        "message": "Invalid API key provided",
+        "details": {
+            "key_prefix": "sk-ab...",
+            "hint": "Check your environment variables"
+        }
+    },
+    "timestamp": "2026-07-03T12:00:00Z"
+}</code></pre>
+
+                <div class="sec-nav"><a href="validating.html">← Back</a><a href="best-practices.html">Next →</a></div>
+            </div>
+        </div>
+        <footer class="docs-page-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="footer-links">
+                <a href="../index.html">Guide</a>
+                <a href="https://github.com">GitHub</a>
+            </div>
+        </footer>
+    </div>
+    <script>function copyCode(btn){var code=btn.nextElementSibling;if(!code)return;navigator.clipboard.writeText(code.textContent).then(function(){var t=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=t},1500)})}
+    (function(){var t=localStorage.getItem('theme')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');document.addEventListener('click',function(e){var b=e.target.closest('[data-toggle-theme]');if(b){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}}})})();</script>
+</body>
+</html>
+
+
+
+
+
+
+

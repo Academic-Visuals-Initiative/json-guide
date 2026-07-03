@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers — JSON Guide</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <nav class="docs-nav-sidebar">
+        <div class="logo-row">
+            <a href="../index.html" class="logo">AVI — JSON Guide</a>
+            <button class="nav-icon-btn" data-toggle-theme aria-label="Toggle theme" style="background:none;border:none;color:var(--muted);cursor:pointer;padding:4px;display:flex;margin-left:auto;transition:color .2s;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <ul class="nav-links" id="section-nav">
+            <li><a href="what-is-json.html">What is JSON</a></li>
+            <li><a href="syntax.html">Basic Rules</a></li>
+            <li><a href="data-types.html">Value Types</a></li>
+            <li><a href="strings.html">Strings</a></li>
+            <li><a href="numbers.html" class="active">Numbers</a></li>
+            <li><a href="boolean.html">Boolean</a></li>
+            <li><a href="null.html">Null</a></li>
+            <li><a href="objects.html">Objects</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="nesting.html">Nesting &amp; Structure</a></li>
+            <li><a href="validating.html">Validating JSON</a></li>
+            <li><a href="real-world.html">Real-World Examples</a></li>
+            <li><a href="best-practices.html">Best Practices</a></li>
+        </ul>
+        <div class="docs-sidebar-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="docs-sidebar-links">
+                <a href="../index.html">GUIDE</a>
+                <a href="https://github.com">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="docs-content">
+            <div class="docs-section active" id="sec4">
+                <h2><span class="sec-num">04</span> Numbers</h2>
+                <p>A number is used to store numeric values, such as age, price, temperature, or distance.</p>
+                <p>Unlike strings, numbers are not written inside quotation marks.</p>
+
+                <h3>Valid JSON Numbers</h3>
+                <p>Here are some examples of valid numbers:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "students": 35,
+    "price": 49.99,
+    "temperature": -8.5,
+    "discount": 0.15,
+    "distanceToMoon": 3.84e8
+}</code></pre>
+                <p>In this example:</p>
+                <ul>
+                    <li><code>35</code> is a whole number.</li>
+                    <li><code>49.99</code> is a decimal number.</li>
+                    <li><code>-8.5</code> is a negative number.</li>
+                    <li><code>0.15</code> is a decimal smaller than 1.</li>
+                    <li><code>3.84e8</code> is scientific notation, which means 3.84 × 10⁸ (384,000,000).</li>
+                </ul>
+
+                <h3>Rules for JSON Numbers</h3>
+
+                <h4>Rule 1: Numbers Do Not Use Quotes</h4>
+                <p>Numbers should be written without double quotes.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "score": 92
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "score": "92"
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> <code>"92"</code> is treated as text (a string), not a number.</p>
+
+                <h4>Rule 2: Use Only Digits (0–9)</h4>
+                <p>JSON numbers use only the digits 0 to 9.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "year": 2026
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "value": 0x20
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> <code>0x20</code> is a hexadecimal number. JSON does not allow hexadecimal numbers.</p>
+
+                <h4>Rule 3: Do Not Start a Number with Extra Zeros</h4>
+                <p>A number should not have unnecessary zeros at the beginning.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "day": 7
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "day": 007
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> Leading zeros are not allowed in JSON numbers.</p>
+
+                <h4>Rule 4: Decimal Numbers Are Allowed</h4>
+                <p>Use a decimal point (.) when a number has a fractional part.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "weight": 65.8
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "weight": 65,8
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> JSON uses a period (.) as the decimal separator, not a comma.</p>
+
+                <h4>Rule 5: Scientific Notation Is Allowed</h4>
+                <p>Very large or very small numbers can be written using <code>e</code> or <code>E</code>.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "stars": 2.5e9
+}</code></pre>
+                <p>This means: 2.5 × 10⁹ = 2,500,000,000</p>
+                <p>Another valid example:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "tinyValue": 4.2E-3
+}</code></pre>
+                <p>This means: 4.2 × 10⁻³ = 0.0042</p>
+
+                <h4>Rule 6: NaN and Infinity Are Not Allowed</h4>
+                <p>JSON does not support the special values <code>NaN</code> or <code>Infinity</code>.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "result": null
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "result": NaN
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "result": Infinity
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> <code>NaN</code> and <code>Infinity</code> are allowed in JavaScript, but they are not valid JSON values.</p>
+
+                <h3>Summary</h3>
+                <div class="blog-table"><table><thead><tr><th>Number Type</th><th>Example</th></tr></thead><tbody>
+                <tr><td>Whole Number</td><td><code>45</code></td></tr>
+                <tr><td>Decimal Number</td><td><code>19.75</code></td></tr>
+                <tr><td>Negative Number</td><td><code>-12</code></td></tr>
+                <tr><td>Decimal Less Than 1</td><td><code>0.8</code></td></tr>
+                <tr><td>Scientific Notation</td><td><code>5.6e7</code></td></tr>
+                </tbody></table></div>
+
+                <h4>Remember</h4>
+                <ul>
+                    <li>✅ Do not use quotes around numbers.</li>
+                    <li>✅ Do not add extra zeros at the beginning.</li>
+                    <li>✅ Use a period (.) for decimal numbers.</li>
+                    <li>✅ Scientific notation (e or E) is allowed.</li>
+                    <li>❌ Do not use hexadecimal (0x), octal, NaN, or Infinity.</li>
+                </ul>
+
+                <div class="sec-nav"><a href="strings.html">← Back</a><a href="boolean.html">Next →</a></div>
+            </div>
+        </div>
+        <footer class="docs-page-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="footer-links">
+                <a href="../index.html">Guide</a>
+                <a href="https://github.com">GitHub</a>
+            </div>
+        </footer>
+    </div>
+    <script>function copyCode(btn){var code=btn.nextElementSibling;if(!code)return;navigator.clipboard.writeText(code.textContent).then(function(){var t=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=t},1500)})}
+    (function(){var t=localStorage.getItem('theme')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');document.addEventListener('click',function(e){var b=e.target.closest('[data-toggle-theme]');if(b){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}}})})();</script>
+</body>
+</html>
+
+
+
+
+
+
