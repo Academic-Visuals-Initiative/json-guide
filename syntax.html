@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Syntax — JSON Guide</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="docs-nav-sidebar">
+        <div class="logo-row">
+            <a href="index.html" class="logo">AVI — JSON Guide</a>
+            <button class="nav-icon-btn" data-toggle-theme aria-label="Toggle theme" style="background:none;border:none;color:var(--muted);cursor:pointer;padding:4px;display:flex;margin-left:auto;transition:color .2s;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <ul class="nav-links" id="section-nav">
+            <li><a href="what-is-json.html">What is JSON</a></li>
+            <li><a href="syntax.html" class="active">Basic Rules</a></li>
+            <li><a href="data-types.html">Value Types</a></li>
+            <li><a href="strings.html">Strings</a></li>
+            
+            <li><a href="numbers.html">Numbers</a></li>
+            <li><a href="boolean.html">Boolean</a></li>
+            <li><a href="null.html">Null</a></li>
+            <li><a href="objects.html">Objects</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="nesting.html">Nesting &amp; Structure</a></li>
+            <li><a href="validating.html">Validating JSON</a></li>
+            <li><a href="real-world.html">Real-World Examples</a></li>
+            <li><a href="best-practices.html">Best Practices</a></li>
+        </ul>
+        <div class="docs-sidebar-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="docs-sidebar-links">
+                <a href="index.html">GUIDE</a>
+                <a href="https://github.com/Academic-Visuals-Initiative">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="docs-content">
+            <div class="docs-section active" id="sec1">
+                <h2><span class="sec-num">01</span> Basic Rules</h2>
+                <p>JSON has a simple set of rules for writing data. Every JSON document must follow these rules so that computers can read and understand it correctly.</p>
+
+                <h3>Basic JSON Terms</h3>
+
+                <h4>Key-Value Pair</h4>
+                <p>A key-value pair is the smallest piece of information in JSON.</p>
+                <p>The <strong>key</strong> tells you what the information is.<br>The <strong>value</strong> is the actual information.</p>
+                <p>For example:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "color": "Blue"
+}</code></pre>
+                <p>Here:</p>
+                <ul>
+                    <li><code>"color"</code> is the key.</li>
+                    <li><code>"Blue"</code> is the value.</li>
+                </ul>
+                <p>You can think of a key as a <strong>label</strong> and the value as the <strong>information</strong> attached to that label.</p>
+
+                <h4>Object</h4>
+                <p>An object is a group of related key-value pairs.</p>
+                <p>Use an object when you want to describe one thing using different pieces of information.</p>
+                <p>For example, if you want to store information about one student:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "name": "Liam",
+    "grade": 8,
+    "passed": true
+}</code></pre>
+                <p>This object stores several details about one student.</p>
+
+                <h4>Array</h4>
+                <p>An array is a list of values.</p>
+                <p>Use an array when you need to store more than one value for the same piece of information.</p>
+                <p>For example, if a student likes several sports:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "favoriteSports": [
+        "Football",
+        "Swimming",
+        "Cricket"
+    ]
+}</code></pre>
+                <p>Here, <code>favoriteSports</code> has three values, so an array is used.</p>
+                <p>If there is only one sport, you don't need an array:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "favoriteSport": "Football"
+}</code></pre>
+                <p>An array is useful whenever you have a list of items, such as:</p>
+                <ul>
+                    <li>Favorite foods</li>
+                    <li>Subjects</li>
+                    <li>Phone numbers</li>
+                </ul>
+
+                <h3>Fundamental Rules</h3>
+                <div class="blog-table"><table><thead><tr><th>Rule</th><th>Description</th></tr></thead><tbody>
+                <tr><td><strong>Data is in name/value pairs</strong></td><td>A key followed by a colon and a value: <code>"key": value</code></td></tr>
+                <tr><td><strong>Keys must be strings</strong></td><td>Keys must be wrapped in double quotes: <code>"name"</code> (not <code>name</code>)</td></tr>
+                <tr><td><strong>Values have types</strong></td><td>A value can be a string, number, boolean, null, object, or array</td></tr>
+                <tr><td><strong>Commas separate pairs</strong></td><td>Each key/value pair is followed by a comma, except the last</td></tr>
+                <tr><td><strong>Curly braces for objects</strong></td><td><code>{ }</code> wrap an object containing key/value pairs</td></tr>
+                <tr><td><strong>Square brackets for arrays</strong></td><td><code>[ ]</code> wrap an ordered list of values</td></tr>
+                </tbody></table></div>
+
+                <h3>Basic Structure</h3>
+                <p>Every JSON document starts and ends with either <code>{ }</code> (an object) or <code>[ ]</code> (an array).</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code><span class="blog-highlight">{</span>
+    "name": "Alice",
+    "age": 30,
+    "city": "New York"
+<span class="blog-highlight">}</span></code></pre>
+
+                <h3>What is NOT allowed</h3>
+                <div class="blog-table"><table><thead><tr><th>Invalid</th><th>Why</th><th>Fix</th></tr></thead><tbody>
+                <tr><td><code>{ name: "Alice" }</code></td><td>Key missing double quotes</td><td><code>{ "name": "Alice" }</code></td></tr>
+                <tr><td><code>{ 'name': 'Alice' }</code></td><td>Single quotes not allowed</td><td><code>{ "name": "Alice" }</code></td></tr>
+                <tr><td><code>{ "name": "Alice", }</code></td><td>Trailing comma after last pair</td><td><code>{ "name": "Alice" }</code></td></tr>
+                <tr><td><code>{ "age": 01 }</code></td><td>Leading zero on number</td><td><code>{ "age": 1 }</code></td></tr>
+                <tr><td><code>{ "note": undefined }</code></td><td><code>undefined</code> is not valid</td><td><code>{ "note": null }</code></td></tr>
+                </tbody></table></div>
+
+                <h3>Whitespace</h3>
+                <p>Spaces, tabs, and newlines are ignored in JSON. Use them to make your data readable. The example above is valid with no whitespace too:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{"name":"Alice","age":30,"city":"New York"}</code></pre>
+                <p>This is called <strong>minified</strong> JSON. It is smaller for transfer but hard to read. Use <strong>pretty-printed</strong> JSON (with indentation) when editing by hand.</p>
+
+                <h3>Examples</h3>
+
+                <h4>Rule 1: Data is Stored as Key-Value Pairs</h4>
+                <p>Every piece of information in JSON has a key (the label) and a value (the actual data).</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "country": <span style="background:rgba(0,200,0,0.25);padding:0 4px;">"Canada"</span>
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "country"<span style="background:rgba(255,0,0,0.3);padding:2px 12px;"> </span>
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> The value is missing. Every key must have a value.</p>
+
+                <h4>Rule 2: Keys Must Be Written Inside Double Quotes</h4>
+                <p>All keys in JSON must use double quotation marks (").</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    <span style="background:rgba(0,200,0,0.25);padding:0 2px;">"</span>animal<span style="background:rgba(0,200,0,0.25);padding:0 2px;">"</span>: "Tiger"
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    <span style="background:rgba(255,0,0,0.3);padding:2px 6px;"> </span>animal<span style="background:rgba(255,0,0,0.3);padding:2px 6px;"> </span>: "Tiger"
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> The key <code>animal</code> is not inside double quotes.</p>
+
+                <h4>Rule 3: Values Can Have Different Data Types</h4>
+                <p>A value can be:</p>
+                <ul>
+                    <li>A string (text)</li>
+                    <li>A number</li>
+                    <li>A boolean (true or false)</li>
+                    <li>null</li>
+                    <li>An object</li>
+                    <li>An array</li>
+                </ul>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "temperature": <span style="background:rgba(0,200,0,0.25);padding:0 4px;">28</span>,
+    "isRaining": <span style="background:rgba(0,200,0,0.25);padding:0 4px;">false</span>
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "temperature":<span style="background:rgba(255,0,0,0.3);padding:2px 12px;"> </span>
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> Every key must have a valid value.</p>
+
+                <h4>Rule 4: Separate Items with Commas</h4>
+                <p>When an object has more than one key-value pair, separate them with commas.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "brand": "Toyota"<span style="background:rgba(0,200,0,0.25);padding:0 4px;">,</span>
+    "year": 2024
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "brand": "Toyota"<span style="background:rgba(255,0,0,0.3);padding:2px 8px;"> </span>
+    "year": 2024
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> There is no comma between the two key-value pairs.</p>
+
+                <h4>Rule 5: Do Not Add a Comma After the Last Item</h4>
+                <p>The last key-value pair should not end with a comma.</p>
+                <p>✅ Correct (Single Key)</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "language": "English"<span style="background:rgba(0,200,0,0.25);padding:0 4px;"> </span>
+}</code></pre>
+                <p>❌ Wrong (Single Key)</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "language": "English"<span style="background:rgba(255,0,0,0.3);padding:2px 8px;">,</span>
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> JSON does not allow a comma after the last item.</p>
+                <p>✅ Correct (Two Keys)</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "country": "USA",
+    "language": "English"<span style="background:rgba(0,200,0,0.25);padding:0 4px;"> </span>
+}</code></pre>
+                <p>❌ Wrong (Two Keys)</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "country": "USA",
+    "language": "English"<span style="background:rgba(255,0,0,0.3);padding:2px 8px;">,</span>
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> The second key-value pair has a trailing comma. The last item should never end with a comma, even when there are multiple items.</p>
+
+                <h4>Rule 6: Objects Use Curly Braces</h4>
+                <p>A JSON object must begin with <code>{</code> and end with <code>}</code>.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code><span style="background:rgba(0,200,0,0.25);padding:0 4px;">{</span>
+    "city": "Tokyo"
+<span style="background:rgba(0,200,0,0.25);padding:0 4px;">}</span></code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[
+    "city": "Tokyo"
+]</code></pre>
+                <p><strong>Why is it wrong?</strong> Square brackets are used for arrays, not objects.</p>
+
+                <h4>Rule 7: Arrays Use Square Brackets</h4>
+                <p>A JSON array stores a list of values and must use <code>[ ]</code>.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code><span style="background:rgba(0,200,0,0.25);padding:0 4px;">[</span>
+    "Red",
+    "Green",
+    "Blue"
+<span style="background:rgba(0,200,0,0.25);padding:0 4px;">]</span></code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code><span style="background:rgba(255,0,0,0.3);padding:2px 4px;">{</span>
+    "Red",
+    "Green",
+    "Blue"
+<span style="background:rgba(255,0,0,0.3);padding:2px 4px;">}</span></code></pre>
+                <p><strong>Why is it wrong?</strong> A list of values should be inside square brackets, not curly braces.</p>
+
+                <h4>Whitespace in JSON</h4>
+                <p>Spaces, tabs, and blank lines do not change the meaning of JSON. They only make it easier for people to read.</p>
+                <p>✅ Easy to Read (Pretty-Printed JSON)</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "school": "Green Valley",
+    "students": 450
+}</code></pre>
+                <p>✅ Also Correct (Minified JSON)</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{"school":"Green Valley","students":450}</code></pre>
+                <p>Both examples contain exactly the same data. The first version is easier for people to read, while the second version is smaller and is often used when sending data over the internet.</p>
+
+                <div class="sec-nav"><a href="what-is-json.html">← Back</a><a href="data-types.html">Next →</a></div>
+            </div>
+        </div>
+        <footer class="docs-page-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="footer-links">
+                <a href="index.html">Guide</a>
+                <a href="https://github.com/Academic-Visuals-Initiative">GitHub</a>
+            </div>
+        </footer>
+    </div>
+    <script>function copyCode(btn){var code=btn.nextElementSibling;if(!code)return;navigator.clipboard.writeText(code.textContent).then(function(){var t=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=t},1500)})}
+    (function(){var t=localStorage.getItem('theme')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');document.addEventListener('click',function(e){var b=e.target.closest('[data-toggle-theme]');if(b){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}}})})();</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

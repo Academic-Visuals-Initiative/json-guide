@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays — JSON Guide</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="docs-nav-sidebar">
+        <div class="logo-row">
+            <a href="index.html" class="logo">AVI — JSON Guide</a>
+            <button class="nav-icon-btn" data-toggle-theme aria-label="Toggle theme" style="background:none;border:none;color:var(--muted);cursor:pointer;padding:4px;display:flex;margin-left:auto;transition:color .2s;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <ul class="nav-links" id="section-nav">
+            <li><a href="what-is-json.html">What is JSON</a></li>
+            <li><a href="syntax.html">Basic Rules</a></li>
+            <li><a href="data-types.html">Value Types</a></li>
+            <li><a href="strings.html">Strings</a></li>
+            
+            <li><a href="numbers.html">Numbers</a></li>
+            <li><a href="boolean.html">Boolean</a></li>
+            <li><a href="null.html">Null</a></li>
+            <li><a href="objects.html">Objects</a></li>
+            <li><a href="arrays.html" class="active">Arrays</a></li>
+            <li><a href="nesting.html">Nesting &amp; Structure</a></li>
+            <li><a href="validating.html">Validating JSON</a></li>
+            <li><a href="real-world.html">Real-World Examples</a></li>
+            <li><a href="best-practices.html">Best Practices</a></li>
+        </ul>
+        <div class="docs-sidebar-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="docs-sidebar-links">
+                <a href="index.html">GUIDE</a>
+                <a href="https://github.com/Academic-Visuals-Initiative">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="docs-content">
+            <div class="docs-section active" id="sec4">
+                <h2><span class="sec-num">08</span> Arrays</h2>
+                <p>A JSON array is used to store a list of values.</p>
+                <p>Use an array whenever you have more than one value for the same piece of information.</p>
+                <p>For example, if a student has several favorite subjects, you can store them in an array.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "favoriteSubjects": [
+        "Math",
+        "Science",
+        "Art"
+    ]
+}</code></pre>
+                <p>Here, <code>favoriteSubjects</code> contains three values, so an array is used.</p>
+
+                <h3>Arrays Can Store Objects</h3>
+                <p>An array can contain objects. This is useful when you have a list of similar items.</p>
+                <p>For example, a classroom may have many students.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "students": [
+        {
+            "name": "Emma",
+            "grade": 8
+        },
+        {
+            "name": "Noah",
+            "grade": 9
+        }
+    ]
+}</code></pre>
+                <p>Here:</p>
+                <ul>
+                    <li><code>students</code> is an array.</li>
+                    <li>Each student is stored as an object.</li>
+                </ul>
+
+                <h3>Arrays Can Contain Other Arrays</h3>
+                <p>Arrays can also contain other arrays.</p>
+                <p>For example, each row of seats in a classroom can be stored as an array.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "seating": [
+        ["Anna", "Ben"],
+        ["Chris", "David"]
+    ]
+}</code></pre>
+                <p>Each inner array represents one row of seats.</p>
+
+                <h3>Rules for JSON Arrays</h3>
+
+                <h4>Rule 1: Arrays Use Square Brackets [ ]</h4>
+                <p>Every array must start with <code>[</code> and end with <code>]</code>.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[
+    "Red",
+    "Green",
+    "Blue"
+]</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "Red",
+    "Green",
+    "Blue"
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> Lists of values must use square brackets, not curly braces.</p>
+
+                <h4>Rule 2: Separate Values with Commas</h4>
+                <p>Each value in an array must be separated by a comma.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[
+    "Dog",
+    "Cat",
+    "Rabbit"
+]</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[
+    "Dog"
+    "Cat"
+    "Rabbit"
+]</code></pre>
+                <p><strong>Why is it wrong?</strong> The values are missing commas.</p>
+
+                <h4>Rule 3: Arrays Can Be Empty</h4>
+                <p>An array does not have to contain any values.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[]</code></pre>
+                <p>This is called an empty array.</p>
+                <p>For example:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "notifications": []
+}</code></pre>
+                <p>This means there are currently no notifications.</p>
+
+                <h4>Rule 4: Arrays Can Contain Different Data Types</h4>
+                <p>An array can store strings, numbers, booleans, objects, arrays, or even null.</p>
+                <p>✅ Example</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[
+    "Apple",
+    25,
+    true,
+    null
+]</code></pre>
+                <p>Although this is valid JSON, it is usually better to store similar types of data together to keep your data organized.</p>
+
+                <h4>Rule 5: Arrays Can Be Nested</h4>
+                <p>An array can contain another array or an object.</p>
+                <p><strong>Array inside an array</strong></p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[
+    ["A", "B"],
+    ["C", "D"]
+]</code></pre>
+                <p><strong>Object inside an array</strong></p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[
+    {
+        "name": "Leo"
+    },
+    {
+        "name": "Mia"
+    }
+]</code></pre>
+
+                <h3>Accessing Array Values Using an Index</h3>
+                <p>Each item in an array has a position called an index.</p>
+                <p>JSON itself does not define indexing. However, when arrays are used in programming languages such as JavaScript or Python, indexing usually starts at 0.</p>
+                <p>For example:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[
+    "Apple",
+    "Banana",
+    "Orange"
+]</code></pre>
+                <div class="blog-table"><table><thead><tr><th>Index</th><th>Value</th></tr></thead><tbody>
+                <tr><td>0</td><td><code>"Apple"</code></td></tr>
+                <tr><td>1</td><td><code>"Banana"</code></td></tr>
+                <tr><td>2</td><td><code>"Orange"</code></td></tr>
+                </tbody></table></div>
+                <p>So:</p>
+                <ul>
+                    <li>Index 0 → <code>"Apple"</code></li>
+                    <li>Index 1 → <code>"Banana"</code></li>
+                    <li>Index 2 → <code>"Orange"</code></li>
+                </ul>
+                <p><strong>Note:</strong> JSON is only a data format. The programming language you use to read JSON decides how array indexing works. Most modern programming languages start counting from 0.</p>
+
+                <h3>Summary</h3>
+                <p>Use an array whenever you need to store multiple values.</p>
+                <p>Examples include:</p>
+                <ul>
+                    <li>A list of students</li>
+                    <li>Favorite foods</li>
+                    <li>Subjects</li>
+                    <li>Phone numbers</li>
+                    <li>Countries visited</li>
+                </ul>
+                <h4>Remember</h4>
+                <ul>
+                    <li>✅ Arrays use square brackets <code>[ ]</code>.</li>
+                    <li>✅ Values are separated by commas.</li>
+                    <li>✅ Arrays can be empty (<code>[]</code>).</li>
+                    <li>✅ Arrays can contain objects, other arrays, or different value types.</li>
+                    <li>✅ In most programming languages, array indexing starts at 0.</li>
+                </ul>
+
+                <div class="sec-nav"><a href="objects.html">← Back</a><a href="nesting.html">Next →</a></div>
+            </div>
+        </div>
+        <footer class="docs-page-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="footer-links">
+                <a href="index.html">Guide</a>
+                <a href="https://github.com/Academic-Visuals-Initiative">GitHub</a>
+            </div>
+        </footer>
+    </div>
+    <script>function copyCode(btn){var code=btn.nextElementSibling;if(!code)return;navigator.clipboard.writeText(code.textContent).then(function(){var t=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=t},1500)})}
+    (function(){var t=localStorage.getItem('theme')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');document.addEventListener('click',function(e){var b=e.target.closest('[data-toggle-theme]');if(b){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}}})})();</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

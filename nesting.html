@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nesting &amp; Structure — JSON Guide</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="docs-nav-sidebar">
+        <div class="logo-row">
+            <a href="index.html" class="logo">AVI — JSON Guide</a>
+            <button class="nav-icon-btn" data-toggle-theme aria-label="Toggle theme" style="background:none;border:none;color:var(--muted);cursor:pointer;padding:4px;display:flex;margin-left:auto;transition:color .2s;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <ul class="nav-links" id="section-nav">
+            <li><a href="what-is-json.html">What is JSON</a></li>
+            <li><a href="syntax.html">Basic Rules</a></li>
+            <li><a href="data-types.html">Value Types</a></li>
+            <li><a href="strings.html">Strings</a></li>
+            
+            <li><a href="numbers.html">Numbers</a></li>
+            <li><a href="boolean.html">Boolean</a></li>
+            <li><a href="null.html">Null</a></li>
+            <li><a href="objects.html">Objects</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="nesting.html" class="active">Nesting &amp; Structure</a></li>
+            <li><a href="validating.html">Validating JSON</a></li>
+            <li><a href="real-world.html">Real-World Examples</a></li>
+            <li><a href="best-practices.html">Best Practices</a></li>
+        </ul>
+        <div class="docs-sidebar-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="docs-sidebar-links">
+                <a href="index.html">GUIDE</a>
+                <a href="https://github.com/Academic-Visuals-Initiative">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="docs-content">
+            <div class="docs-section active" id="sec5">
+                <h2><span class="sec-num">09</span> Nesting &amp; Structure</h2>
+                <p>One of the most useful features of JSON is nesting.</p>
+                <p>Nesting means placing an object or an array inside another object or array. This helps organize related information and represent real-world data in a clear way.</p>
+                <p>For example, a school has students, and each student has subjects. Instead of putting everything in one long list, we can group related information together using nesting.</p>
+
+                <h3>Objects Inside Objects</h3>
+                <p>An object can contain another object.</p>
+                <p>This is useful when you want to group related information together.</p>
+                <p>For example, a person has an address.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "person": {
+        "name": "Emma",
+        "address": {
+            "city": "Colombo",
+            "country": "Sri Lanka"
+        }
+    }
+}</code></pre>
+                <p>Here:</p>
+                <ul>
+                    <li><code>person</code> is an object.</li>
+                    <li>Inside <code>person</code>, <code>address</code> is another object.</li>
+                </ul>
+                <p>This makes the data organized and easy to understand.</p>
+
+                <h3>Objects Inside Arrays</h3>
+                <p>An array can contain multiple objects.</p>
+                <p>This is useful when you have many similar items, such as students, books, or products.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "students": [
+        {
+            "name": "Liam",
+            "grade": 8
+        },
+        {
+            "name": "Sophia",
+            "grade": 9
+        },
+        {
+            "name": "Noah",
+            "grade": 8
+        }
+    ]
+}</code></pre>
+                <p>Here:</p>
+                <ul>
+                    <li><code>students</code> is an array.</li>
+                    <li>Each student is stored as an object.</li>
+                </ul>
+                <p>This is one of the most common ways JSON is used.</p>
+
+                <h3>Arrays Inside Objects</h3>
+                <p>An object can also contain an array.</p>
+                <p>Use this when one piece of information has multiple values.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "book": {
+        "title": "Science Basics",
+        "chapters": [
+            "Plants",
+            "Animals",
+            "Space"
+        ]
+    }
+}</code></pre>
+                <p>Here:</p>
+                <ul>
+                    <li><code>book</code> is an object.</li>
+                    <li><code>chapters</code> is an array because the book has several chapters.</li>
+                </ul>
+
+                <h3>Arrays Inside Arrays</h3>
+                <p>An array can contain other arrays.</p>
+                <p>This is useful for storing data in rows and columns.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "classrooms": [
+        ["Room A", "Room B"],
+        ["Room C", "Room D"]
+    ]
+}</code></pre>
+                <p>Each inner array represents one row.</p>
+
+                <h3>Combining Objects and Arrays</h3>
+                <p>In real applications, JSON often combines objects and arrays.</p>
+                <p>For example, a school has many students, and each student studies several subjects.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "school": {
+        "name": "Green Valley School",
+        "students": [
+            {
+                "name": "Emma",
+                "subjects": [
+                    "Math",
+                    "Science"
+                ]
+            },
+            {
+                "name": "Leo",
+                "subjects": [
+                    "English",
+                    "History"
+                ]
+            }
+        ]
+    }
+}</code></pre>
+                <p>In this example:</p>
+                <ul>
+                    <li><code>school</code> is an object.</li>
+                    <li><code>students</code> is an array.</li>
+                    <li>Each student is an object.</li>
+                    <li><code>subjects</code> is another array inside each student object.</li>
+                </ul>
+                <p>This shows how objects and arrays can work together to organize complex information.</p>
+
+                <h3>Deep Nesting</h3>
+                <p>JSON allows you to keep nesting objects and arrays inside one another.</p>
+                <p>For example:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "library": {
+        "sections": [
+            {
+                "name": "Science",
+                "books": [
+                    {
+                        "title": "Physics Basics",
+                        "author": {
+                            "firstName": "John",
+                            "lastName": "Lee"
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}</code></pre>
+                <p>This example has several levels of nesting:</p>
+                <ul>
+                    <li><code>library</code> → object</li>
+                    <li><code>sections</code> → array</li>
+                    <li>each section → object</li>
+                    <li><code>books</code> → array</li>
+                    <li>each book → object</li>
+                    <li><code>author</code> → object</li>
+                </ul>
+                <p>JSON allows many levels of nesting, but using too many levels can make the data difficult to read. It is usually better to keep the structure as simple as possible.</p>
+
+                <h3>Summary</h3>
+                <p>Nesting helps organize related information in JSON.</p>
+                <p>You can nest data in several ways:</p>
+                <ul>
+                    <li>Object inside an object → Group related information.</li>
+                    <li>Array inside an object → Store multiple values for one key.</li>
+                    <li>Object inside an array → Store a list of similar items.</li>
+                    <li>Array inside an array → Store lists within lists.</li>
+                </ul>
+                <p>By combining objects and arrays, JSON can represent simple data as well as complex real-world information in a clear and organized way.</p>
+
+                <div class="sec-nav"><a href="arrays.html">← Back</a><a href="validating.html">Next →</a></div>
+            </div>
+        </div>
+        <footer class="docs-page-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="footer-links">
+                <a href="index.html">Guide</a>
+                <a href="https://github.com/Academic-Visuals-Initiative">GitHub</a>
+            </div>
+        </footer>
+    </div>
+    <script>function copyCode(btn){var code=btn.nextElementSibling;if(!code)return;navigator.clipboard.writeText(code.textContent).then(function(){var t=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=t},1500)})}
+    (function(){var t=localStorage.getItem('theme')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');document.addEventListener('click',function(e){var b=e.target.closest('[data-toggle-theme]');if(b){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}}})})();</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

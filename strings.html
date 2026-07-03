@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings — JSON Guide</title>
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>if(localStorage.getItem('theme')==='dark'){document.documentElement.setAttribute('data-theme','dark')}</script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="docs-nav-sidebar">
+        <div class="logo-row">
+            <a href="index.html" class="logo">AVI — JSON Guide</a>
+            <button class="nav-icon-btn" data-toggle-theme aria-label="Toggle theme" style="background:none;border:none;color:var(--muted);cursor:pointer;padding:4px;display:flex;margin-left:auto;transition:color .2s;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+            </button>
+        </div>
+        <ul class="nav-links" id="section-nav">
+            <li><a href="what-is-json.html">What is JSON</a></li>
+            <li><a href="syntax.html">Basic Rules</a></li>
+            <li><a href="data-types.html">Value Types</a></li>
+            <li><a href="strings.html" class="active">Strings</a></li>
+            <li><a href="numbers.html">Numbers</a></li>
+            <li><a href="boolean.html">Boolean</a></li>
+            <li><a href="null.html">Null</a></li>
+            <li><a href="objects.html">Objects</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="nesting.html">Nesting &amp; Structure</a></li>
+            <li><a href="validating.html">Validating JSON</a></li>
+            <li><a href="real-world.html">Real-World Examples</a></li>
+            <li><a href="best-practices.html">Best Practices</a></li>
+        </ul>
+        <div class="docs-sidebar-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="docs-sidebar-links">
+                <a href="index.html">GUIDE</a>
+                <a href="https://github.com/Academic-Visuals-Initiative">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="docs-content">
+            <div class="docs-section active" id="sec3">
+                <h2><span class="sec-num">03</span> Strings</h2>
+                <p>A string is a piece of text in JSON. It can contain letters, numbers, symbols, or even be empty.</p>
+                <p>Every string must be written inside double quotation marks (").</p>
+
+                <h3>Valid JSON Strings</h3>
+                <p>Here are some valid string examples:</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>[
+    "Hello",
+    "Welcome to JSON",
+    "12345",
+    "",
+    "😊"
+]</code></pre>
+                <p>Notice that all the values are inside double quotes.</p>
+                <ul>
+                    <li><code>"Hello"</code> is a string.</li>
+                    <li><code>"12345"</code> is also a string because it is inside quotes.</li>
+                    <li><code>""</code> is an empty string, which means it contains no characters.</li>
+                </ul>
+
+                <h3>Strings Must Use Double Quotes</h3>
+                <p>JSON only allows double quotes for strings.</p>
+                <p>✅ Correct</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "city": "London"
+}</code></pre>
+                <p>❌ Wrong</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "city": 'London'
+}</code></pre>
+                <p><strong>Why is it wrong?</strong> JSON does not allow single quotes (') for strings.</p>
+
+                <h3>Escape Characters</h3>
+                <p>Sometimes you need to include special characters inside a string. JSON uses a backslash (\) before these special characters. These are called escape characters.</p>
+
+                <h4>1. Double Quote (\")</h4>
+                <p>Use <code>\"</code> when you want to include double quotes inside a string.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "message": "She said, \"Good morning!\""
+}</code></pre>
+
+                <h4>2. Backslash (\\)</h4>
+                <p>Use <code>\\</code> to display a backslash.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "path": "C:\\Users\\Alex"
+}</code></pre>
+
+                <h4>3. Forward Slash (\/)</h4>
+                <p>A forward slash usually does not need to be escaped, but JSON allows it.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "website": "https:\/\/example.com"
+}</code></pre>
+
+                <h4>4. New Line (\n)</h4>
+                <p>Use <code>\n</code> to move text to the next line.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "text": "Line 1\nLine 2"
+}</code></pre>
+
+                <h4>5. Tab (\t)</h4>
+                <p>Use <code>\t</code> to insert a tab space.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "text": "Name\tAge"
+}</code></pre>
+
+                <h4>6. Backspace (\b)</h4>
+                <p><code>\b</code> represents a backspace character. It removes the character before it when processed by some programs.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "example": "ABC\bD"
+}</code></pre>
+
+                <h4>7. Form Feed (\f)</h4>
+                <p><code>\f</code> represents a form feed, which is mainly used when printing documents or moving to a new page.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "example": "Page1\fPage2"
+}</code></pre>
+
+                <h4>8. Carriage Return (\r)</h4>
+                <p><code>\r</code> moves the cursor back to the beginning of the current line.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "text": "Hello\rWorld"
+}</code></pre>
+
+                <h4>9. Unicode Character (\u)</h4>
+                <p>Use <code>\u</code> followed by four hexadecimal digits to represent a Unicode character.</p>
+                <pre><button class="blog-copy-btn" onclick="copyCode(this)">Copy</button><code>{
+    "letter": "\u0042"
+}</code></pre>
+                <p>Here, <code>0042</code> is the Unicode value for the letter <strong>B</strong>.</p>
+
+                <h3>Summary of Escape Characters</h3>
+                <div class="blog-table"><table><thead><tr><th>Escape Character</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
+                <tr><td><code>\"</code></td><td>Double quote</td><td><code>"He said, \"Hi!\""</code></td></tr>
+                <tr><td><code>\\</code></td><td>Backslash</td><td><code>"C:\\Files"</code></td></tr>
+                <tr><td><code>\/</code></td><td>Forward slash</td><td><code>"https:\/\/example.com"</code></td></tr>
+                <tr><td><code>\n</code></td><td>New line</td><td><code>"Hello\nWorld"</code></td></tr>
+                <tr><td><code>\t</code></td><td>Tab</td><td><code>"Name\tAge"</code></td></tr>
+                <tr><td><code>\b</code></td><td>Backspace</td><td><code>"ABC\bD"</code></td></tr>
+                <tr><td><code>\f</code></td><td>Form feed</td><td><code>"Page1\fPage2"</code></td></tr>
+                <tr><td><code>\r</code></td><td>Carriage return</td><td><code>"Hello\rWorld"</code></td></tr>
+                <tr><td><code>\uXXXX</code></td><td>Unicode character</td><td><code>"\u0042" → B</code></td></tr>
+                </tbody></table></div>
+
+                <div class="sec-nav"><a href="data-types.html">← Back</a><a href="numbers.html">Next →</a></div>
+            </div>
+        </div>
+        <footer class="docs-page-footer">
+            <span>&copy; 2026 Academic Visuals Initiative (AVI).</span>
+            <div class="footer-links">
+                <a href="index.html">Guide</a>
+                <a href="https://github.com/Academic-Visuals-Initiative">GitHub</a>
+            </div>
+        </footer>
+    </div>
+    <script>function copyCode(btn){var code=btn.nextElementSibling;if(!code)return;navigator.clipboard.writeText(code.textContent).then(function(){var t=btn.textContent;btn.textContent='Copied!';setTimeout(function(){btn.textContent=t},1500)})}
+    (function(){var t=localStorage.getItem('theme')||'light';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');document.addEventListener('click',function(e){var b=e.target.closest('[data-toggle-theme]');if(b){var h=document.documentElement;var n=h.getAttribute('data-theme')==='dark'?'light':'dark';h.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}}})})();</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
